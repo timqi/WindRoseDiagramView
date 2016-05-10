@@ -61,11 +61,6 @@ public class WRDAdapter extends WindRoseDiagramAdapter {
     map4.put("percent", 0.57f);
     result.add(map4);
 
-    Map<String, Object> map5 = new HashMap<>();
-    map5.put("name", "丁丁");
-    map5.put("percent", 0.92f);
-    result.add(map5);
-
     return result;
   }
 }

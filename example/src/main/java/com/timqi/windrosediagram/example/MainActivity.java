@@ -1,13 +1,10 @@
 package com.timqi.windrosediagram.example;
 
 
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
@@ -75,14 +72,6 @@ public class MainActivity extends AppCompatActivity {
     updateColor();
     currValueColor.setOnClickListener(colorPickerClickListener);
     currValueColor.setBackgroundColor(0xcc1888cc);
-
-
-    ObjectAnimator animator = ObjectAnimator.ofInt(windRoseDiagramView, "anchorWidth", 0, dp2px(8));
-    animator.setDuration(1000);
-    animator.setInterpolator(new LinearInterpolator());
-    animator.setRepeatCount(ValueAnimator.INFINITE);
-    animator.setRepeatMode(ValueAnimator.REVERSE);
-    animator.start();
   }
 
   View.OnClickListener colorPickerClickListener
