@@ -7,3 +7,5 @@
 .DS_Store
 /build
 /captures
+library/local.properties
+library/project.properties
