@@ -4,9 +4,12 @@
         <attr name="textColor" format="color"/>
         <attr name="textSize" format="dimension"/>
         <attr name="outlineWidth" format="dimension"/>
+        <attr name="outlineColor" format="color"/>
         <attr name="backgroundColor" format="color"/>
         <attr name="foregroundColor" format="color"/>
-        <attr name="outlineColor" format="color"/>
         <attr name="startAngle" format="float"/>
+        <attr name="touchSlop" format="dimension"/>
+        <attr name="anchorWidth" format="dimension"/>
+        <attr name="anchorColor" format="color"/>
     </declare-styleable>
 </resources>
