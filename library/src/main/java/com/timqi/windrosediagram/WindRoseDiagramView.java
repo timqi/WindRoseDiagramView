@@ -293,5 +293,96 @@ public class WindRoseDiagramView extends View {
     onDataSetChange();
   }
 
+  public int getBackgroundColor() {
+    return mOvalBackgroundColor;
+  }
 
+  public void setBackgroundColor(int mOvalBackgroundColor) {
+    this.mOvalBackgroundColor = mOvalBackgroundColor;
+    refreshLayout();
+  }
+
+  public int getOutlineColor() {
+    return mOutlineColor;
+  }
+
+  public void setOutlineColor(int mOutlineColor) {
+    this.mOutlineColor = mOutlineColor;
+    refreshLayout();
+  }
+
+  public int getOutlineWidth() {
+    return mOutlineWidth;
+  }
+
+  public void setOutlineWidth(int mOutlineWidth) {
+    this.mOutlineWidth = mOutlineWidth;
+    refreshLayout();
+  }
+
+  public float getStartAngle() {
+    return mStartAngle;
+  }
+
+  public void setStartAngle(float mStartAngle) {
+    this.mStartAngle = mStartAngle;
+    onDataSetChange();
+    refreshLayout();
+  }
+
+  public int getForegroundColor() {
+    return mForegroundColor;
+  }
+
+  public void setForegroundColor(int mForegroundColor) {
+    this.mForegroundColor = mForegroundColor;
+    refreshLayout();
+  }
+
+  public int getAnchorWidth() {
+    return mAnchorWidth;
+  }
+
+  public void setAnchorWidth(int mAnchorWidth) {
+    this.mAnchorWidth = mAnchorWidth;
+    refreshLayout();
+  }
+
+  public int getAnchorColor() {
+    return mAnchorColor;
+  }
+
+  public void setAnchorColor(int mAnchorColor) {
+    this.mAnchorColor = mAnchorColor;
+    refreshLayout();
+  }
+
+  public int getTextSize() {
+    return mTextSize;
+  }
+
+  public void setTextSize(int mTextSize) {
+    this.mTextSize = mTextSize;
+    updateOval();
+    onDataSetChange();
+    refreshLayout();
+  }
+
+  public int getTextColor() {
+    return mTextColor;
+  }
+
+  public void setTextColor(int mTextColor) {
+    this.mTextColor = mTextColor;
+    refreshLayout();
+  }
+
+  public int getTouchSlop() {
+    return mTouchSlop;
+  }
+
+  public void setTouchSlop(int mTouchSlop) {
+    this.mTouchSlop = mTouchSlop;
+    refreshLayout();
+  }
 }
