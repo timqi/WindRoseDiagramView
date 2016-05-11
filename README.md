@@ -53,14 +53,20 @@ windRoseDiagramView.setTextSize(value);
 windRoseDiagramView.setTouchSlop(value);
 ```
 
-Integration
-============
+# About Click Event
+
+- `setWindRoseClickListener` will detect the distance between touch point and each center point of Text. If the distance is shortter than `touchSlop`, will callback an event onItemClick(int position), the `position` is the position of Text.
+- `setOnClickListener` trigger the click event in the view but out of `setWindRoseClickListener` area.
+
+See the demo app for more information.
+
+# Integration
 
 - Using gradle. Add the dependency in your app.gradle
 
 ```groovy
 dependencies {
-    compile 'com.timqi.windrosediagramview:library:1.0.1'
+    compile 'com.timqi.windrosediagramview:library:1.0.2'
 }
 ```
 
