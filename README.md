@@ -66,7 +66,7 @@ See the demo app for more information.
 
 ```groovy
 dependencies {
-    compile 'com.timqi.windrosediagramview:library:1.0.2'
+    compile 'com.timqi.windrosediagram:library:1.0.2'
 }
 ```
 
