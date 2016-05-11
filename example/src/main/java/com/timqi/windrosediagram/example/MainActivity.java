@@ -1,6 +1,5 @@
 package com.timqi.windrosediagram.example;
 
-
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -56,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     windRoseDiagramView.setAdapter(adapter);
     windRoseDiagramView.setWindRoseClickListener(windRoseClickListener);
+    windRoseDiagramView.setOnClickListener(normalClickListener);
 
     ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerDataList);
     spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -262,6 +262,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onItemClick(int position) {
       Toast.makeText(MainActivity.this, "click: " + adapter.getName(position), Toast.LENGTH_SHORT).show();
+    }
+  };
+
+  private View.OnClickListener normalClickListener
+      = new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+      Toast.makeText(MainActivity.this, "click", Toast.LENGTH_SHORT).show();
     }
   };
 }

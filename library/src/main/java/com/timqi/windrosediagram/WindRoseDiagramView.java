@@ -68,10 +68,17 @@ public class WindRoseDiagramView extends View {
 
   private int mTouchSlop;
 
+  private OnClickListener mClickListenerNormal;
+
   public void setWindRoseClickListener(WindRoseClickListener listener) {
     this.windRoseClickListener = listener;
   }
 
+  @Override
+  public void setOnClickListener(OnClickListener l) {
+    super.setOnClickListener(onClickListener);
+    this.mClickListenerNormal = l;
+  }
 
   public WindRoseDiagramView(Context context) {
     super(context);
@@ -174,10 +181,10 @@ public class WindRoseDiagramView extends View {
     path.moveTo(mForegroundDestPoints[0].x, mForegroundDestPoints[0].y);
     for (int i = 0, count = mAdapter.getCount(); i < count; i++) {
 
-      canvas.drawOval(new RectF(mForegroundDestPoints[i].x-mAnchorWidth,
-          mForegroundDestPoints[i].y-mAnchorWidth,
-          mForegroundDestPoints[i].x+mAnchorWidth,
-          mForegroundDestPoints[i].y+mAnchorWidth), mAnchorPaint);
+      canvas.drawOval(new RectF(mForegroundDestPoints[i].x - mAnchorWidth,
+          mForegroundDestPoints[i].y - mAnchorWidth,
+          mForegroundDestPoints[i].x + mAnchorWidth,
+          mForegroundDestPoints[i].y + mAnchorWidth), mAnchorPaint);
 
       canvas.drawLine(mCenter.x, mCenter.y, mDestPoints[i].x, mDestPoints[i].y, mOutlinePaint);
       canvas.drawLine(mForegroundDestPoints[i].x, mForegroundDestPoints[i].y,
@@ -231,7 +238,7 @@ public class WindRoseDiagramView extends View {
     float angleFraction = (float) (2 * Math.PI) / count;
 
     for (int i = 0; i < count; i++) {
-      float angle = (float) (mStartAngle*Math.PI/180 + i * angleFraction);
+      float angle = (float) (mStartAngle * Math.PI / 180 + i * angleFraction);
       mDestPoints[i] = new Point((int) (mCenter.x + mRadius * Math.sin(angle)),
           (int) (mCenter.y - mRadius * Math.cos(angle)));
       mTextDestPoints[i] = new Point((int) (mCenter.x + textRadius * Math.sin(angle)),
@@ -256,20 +263,22 @@ public class WindRoseDiagramView extends View {
   private OnClickListener onClickListener = new OnClickListener() {
     @Override
     public void onClick(View v) {
-      if (mTextDestPoints == null || mLastTouchMotionEvent == null || windRoseClickListener == null)
-        return;
+      if (mTextDestPoints != null && mLastTouchMotionEvent != null && windRoseClickListener != null) {
+        int[] parentLocation = new int[2];
+        getLocationOnScreen(parentLocation);
+        Point touchPoint = new Point((int) mLastTouchMotionEvent.getRawX() - parentLocation[0],
+            (int) mLastTouchMotionEvent.getRawY() - parentLocation[1]);
 
-      int[] parentLocation = new int[2];
-      getLocationOnScreen(parentLocation);
-      Point touchPoint = new Point((int) mLastTouchMotionEvent.getRawX() - parentLocation[0],
-          (int) mLastTouchMotionEvent.getRawY() - parentLocation[1]);
-
-      for (int i = 0, count = mTextDestPoints.length; i < count; i++) {
-        double distance = getDistance(touchPoint, mTextDestPoints[i]);
-        if (distance <= mTouchSlop) {
-          windRoseClickListener.onItemClick(i);
-          break;
+        for (int i = 0, count = mTextDestPoints.length; i < count; i++) {
+          double distance = getDistance(touchPoint, mTextDestPoints[i]);
+          if (distance <= mTouchSlop) {
+            windRoseClickListener.onItemClick(i);
+            return;
+          }
         }
+      }
+      if (mClickListenerNormal != null) {
+        mClickListenerNormal.onClick(WindRoseDiagramView.this);
       }
     }
   };
