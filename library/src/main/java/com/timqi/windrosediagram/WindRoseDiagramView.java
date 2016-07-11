@@ -106,17 +106,17 @@ public class WindRoseDiagramView extends View {
   private void initAttrs(TypedArray attributes) {
 
     try {
-      mOvalBackgroundColor = attributes.getColor(R.styleable.WindRoseDiagramView_backgroundColor, 0);
+      mOvalBackgroundColor = attributes.getColor(R.styleable.WindRoseDiagramView_windRoseBackgroundColor, 0);
       mOutlineWidth = attributes.getDimensionPixelOffset(R.styleable.WindRoseDiagramView_outlineWidth, dp2px(1));
       mOutlineColor = attributes.getColor(R.styleable.WindRoseDiagramView_outlineColor, 0xccffffff);
-      mTextColor = attributes.getColor(R.styleable.WindRoseDiagramView_textColor, 0xccffffff);
-      mTextSize = attributes.getDimensionPixelOffset(R.styleable.WindRoseDiagramView_textSize, dp2px(15));
+      mTextColor = attributes.getColor(R.styleable.WindRoseDiagramView_windRoseTextColor, 0xccffffff);
+      mTextSize = attributes.getDimensionPixelOffset(R.styleable.WindRoseDiagramView_windRoseTextSize, dp2px(15));
       mAnchorWidth = attributes.getDimensionPixelOffset(R.styleable.WindRoseDiagramView_anchorWidth, dp2px(4));
       mAnchorColor = attributes.getColor(R.styleable.WindRoseDiagramView_anchorColor, 0xffffffff);
       mForegroundColor = attributes.getColor(R.styleable.WindRoseDiagramView_foregroundColor, 0x881888ec);
 
       mTouchSlop = attributes.getDimensionPixelOffset(R.styleable.WindRoseDiagramView_touchSlop, dp2px(24));
-      mStartAngle = attributes.getFloat(R.styleable.WindRoseDiagramView_startAngle, 0);
+      mStartAngle = attributes.getFloat(R.styleable.WindRoseDiagramView_windRoseStartAngle, 0);
     } finally {
       attributes.recycle();
     }

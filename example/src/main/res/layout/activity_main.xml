@@ -18,13 +18,13 @@
 
         app:anchorColor="#fff"
         app:anchorWidth="4dp"
-        app:backgroundColor="#00000000"
+        app:windRoseBackgroundColor="#00000000"
         app:foregroundColor="#881888ec"
         app:outlineColor="#ccffffff"
         app:outlineWidth="1dp"
-        app:startAngle="90"
-        app:textColor="#ccffffff"
-        app:textSize="15sp"
+        app:windRoseStartAngle="90"
+        app:windRoseTextColor="#ccffffff"
+        app:windRoseTextSize="15sp"
         app:touchSlop="24dp"
         />
 
