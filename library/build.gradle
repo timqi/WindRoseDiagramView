@@ -19,7 +19,7 @@ android {
     minSdkVersion 8
     targetSdkVersion 23
     versionCode 20150712
-    versionName "1.0.4"
+    versionName "1.0.5"
   }
 
   buildTypes {
@@ -30,6 +30,7 @@ android {
 }
 
 dependencies {
+  compile 'com.android.support:appcompat-v7:23.3.0'
 }
 
 apply from: "bintrayUpload.gradle"
